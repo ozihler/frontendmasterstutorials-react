@@ -1,6 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import SearchParams from './SearchParams' // specific exports: tree shaking will only include code that will ever run
+import {Link, Router} from '@reach/router';
+import SearchParams from './SearchParams'
+import Details from "./Details"; // specific exports: tree shaking will only include code that will ever run
 // you need parcel > babel to use Jsx
 // my code
 const App = () => {
@@ -10,8 +12,13 @@ const App = () => {
     return (
         <React.StrictMode>
             <div>
-                <h1 id="something-important">Adopt me!</h1>
-                <SearchParams/>
+                <header>
+                    <Link to="/">Adopt me!</Link>
+                </header>
+                <Router>
+                    <SearchParams path="/"/>
+                    <Details path="/details/:id"/>
+                </Router>
             </div>
         </React.StrictMode>
     );
