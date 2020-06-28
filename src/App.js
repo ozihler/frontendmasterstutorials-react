@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {render} from 'react-dom';
+import SearchParams from './SearchParams' // specific exports: tree shaking will only include code that will ever run
+// you need parcel > babel to use Jsx
+// my code
+const App = () => {
+    // this is a component: returns markup > Composable Components
+    // Rubber stamp called "App". Only useful when you want to use it. As many time as you want
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    return (
+        <React.StrictMode>
+            <div>
+                <h1 id="something-important">Adopt me!</h1>
+                <SearchParams/>
+            </div>
+        </React.StrictMode>
+    );
+};
 
-export default App;
+render(
+    <App/>, // renders component
+    document.getElementById("root") // where to render it
+);
