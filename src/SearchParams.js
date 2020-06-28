@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import pet, {ANIMALS} from '@frontendmasters/pet'
 import useDropdown from "./useDropdown";
+import Results from './Results';
 
 const SearchParams = () => {
     const [location, setLocation] = useState('Seattle, WA'); // hook, all hooks start with 'use'
@@ -35,10 +36,10 @@ const SearchParams = () => {
     return (
         <div className="search-params">
             <form
-            onSubmit={(e)=>{
-                e.preventDefault();
-                requestPets();
-            }}>
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    requestPets();
+                }}>
                 <label htmlFor="location">
                     Location
                     <input id="location"
@@ -51,7 +52,9 @@ const SearchParams = () => {
                 <BreedDropdown/>
 
                 <button>Submit</button>
+
             </form>
+            <Results pets={pets}/>
         </div>
     );
 };
